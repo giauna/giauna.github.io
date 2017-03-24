@@ -300,12 +300,6 @@
   - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to **add items to an array**.
 
     ```javascript
-    const someStack = [];
-
-    // bad
-    someStack[someStack.length] = 'abracadabra';
-
-    // good
     someStack.push('abracadabra');
     ```
 
@@ -313,16 +307,6 @@
   - [4.3](#es6-array-spreads) Use array spreads `...` to **copy arrays**.
 
     ```javascript
-    // bad
-    const len = items.length;
-    const itemsCopy = [];
-    let i;
-
-    for (i = 0; i < len; i += 1) {
-      itemsCopy[i] = items[i];
-    }
-
-    // good
     const itemsCopy = [...items];
     ```
 
