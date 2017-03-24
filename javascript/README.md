@@ -98,7 +98,7 @@
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
     
-    > *A programming language has **block scope** if a variable declared inside some block of code enclosed by curly braces is only visible within that block of code, and that variable is not visible outside of that particular block of code.)*
+    > *A programming language has **block scope** if a variable declared inside some block of code enclosed by curly braces is only visible within that block of code, and that variable is not visible outside of that particular block of code.*
 
 
     ```javascript
@@ -133,7 +133,7 @@
 ## Objects
 
   <a name="objects--no-new"></a><a name="3.1"></a>
-  - [3.1](#objects--no-new) Use the literal syntax for object creation. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+  - [3.1](#objects--no-new) Use the literal syntax for **object creation**. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
 
     ```javascript
     // bad
@@ -217,18 +217,6 @@
     > Why? It's easier to tell which properties are using the shorthand.
 
     ```javascript
-    const anakinSkywalker = 'Anakin Skywalker';
-    const lukeSkywalker = 'Luke Skywalker';
-
-    // bad
-    const obj = {
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
-    };
 
     // good
     const obj = {
