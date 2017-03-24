@@ -88,17 +88,17 @@
     ```javascript
     // bad
     var a = 1;
-    var b = 2;
 
     // good
     const a = 1;
-    const b = 2;
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
   - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
+    > (A programming language has **block scope** if a variable declared inside some block of code enclosed by curly braces is only visible within that block of code, and that variable is not visible outside of that particular block of code.)
+
 
     ```javascript
     // bad
