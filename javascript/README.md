@@ -81,34 +81,22 @@
 ## References
 
   <a name="references--prefer-const"></a><a name="2.1"></a>
-  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`.
 
     > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
 
     ```javascript
-    // bad
-    var a = 1;
-
-    // good
     const a = 1;
     ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
-  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`.
 
     > Why? `let` is block-scoped rather than function-scoped like `var`.
-    
-    > *A programming language has **block scope** if a variable declared inside some block of code enclosed by curly braces is only visible within that block of code, and that variable is not visible outside of that particular block of code.*
 
+    > A programming language has **block scope** if a variable declared inside some block of code enclosed by curly braces is only visible within that block of code, and that variable is not visible outside of that particular block of code.
 
     ```javascript
-    // bad
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
-
-    // good, use the let.
     let count = 1;
     if (true) {
       count += 1;
@@ -133,13 +121,9 @@
 ## Objects
 
   <a name="objects--no-new"></a><a name="3.1"></a>
-  - [3.1](#objects--no-new) Use the literal syntax for **object creation**. eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+  - [3.1](#objects--no-new) Use the literal syntax for **object creation**.
 
     ```javascript
-    // bad
-    const item = new Object();
-
-    // good
     const item = {};
     ```
 
@@ -149,7 +133,6 @@
     > Why? They allow you to define all the properties of an object in one place.
 
     ```javascript
-
     function getKey(k) {
       return `a key named ${k}`;
     }
@@ -170,13 +153,12 @@
     ```
 
   <a name="es6-object-shorthand"></a><a name="3.5"></a>
-  - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.3](#es6-object-shorthand) Use object method shorthand.
 
     ```javascript
     // bad
     const atom = {
       value: 1,
-
       addValue: function (value) {
         return atom.value + value;
       },
@@ -185,7 +167,6 @@
     // good
     const atom = {
       value: 1,
-
       addValue(value) {
         return atom.value + value;
       },
@@ -193,7 +174,7 @@
     ```
 
   <a name="es6-object-concise"></a><a name="3.6"></a>
-  - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+  - [3.4](#es6-object-concise) Use property value shorthand.
 
     > Why? It is shorter to write and descriptive.
 
@@ -217,8 +198,6 @@
     > Why? It's easier to tell which properties are using the shorthand.
 
     ```javascript
-
-    // good
     const obj = {
       lukeSkywalker,
       anakinSkywalker,
@@ -230,10 +209,9 @@
     ```
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
-  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
+  - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers.
 
     ```javascript
-    // good
     const good = {
       foo: 3,
       bar: 4,
@@ -286,32 +264,28 @@
 ## Arrays
 
   <a name="arrays--literals"></a><a name="4.1"></a>
-  - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  - [4.1](#arrays--literals) **Array creation** - Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
 
     ```javascript
-    // bad
-    const items = new Array();
-
-    // good
     const items = [];
     ```
 
   <a name="arrays--push"></a><a name="4.2"></a>
-  - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to **add items to an array**.
+  - [4.2](#arrays--push) **Add items to an array** - Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to .
 
     ```javascript
     someStack.push('abracadabra');
     ```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
-  - [4.3](#es6-array-spreads) Use array spreads `...` to **copy arrays**.
+  - [4.3](#es6-array-spreads) **Copy arrays** - Use array spreads `...` .
 
     ```javascript
     const itemsCopy = [...items];
     ```
 
   <a name="arrays--from"></a><a name="4.4"></a>
-  - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+  - [4.4](#arrays--from) **Convert an array-like object to an array** - Use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
     ```javascript
     const foo = document.querySelectorAll('.foo');
@@ -362,7 +336,6 @@
       if (subject === 'Mockingbird') {
         return author === 'Harper Lee';
       }
-
       return false;
     });
     ```
@@ -373,22 +346,6 @@
   - [4.6](#arrays--bracket-newline) Use line breaks after open and before close array brackets if an array has multiple lines
 
   ```javascript
-  // bad
-  const arr = [
-    [0, 1], [2, 3], [4, 5],
-  ];
-
-  const objectInArray = [{
-    id: 1,
-  }, {
-    id: 2,
-  }];
-
-  const numberInArray = [
-    1, 2,
-  ];
-
-  // good
   const arr = [[0, 1], [2, 3], [4, 5]];
 
   const objectInArray = [
@@ -420,7 +377,6 @@
     function getFullName(user) {
       const firstName = user.firstName;
       const lastName = user.lastName;
-
       return `${firstName} ${lastName}`;
     }
 
@@ -461,7 +417,6 @@
       // then a miracle occurs
       return [left, right, top, bottom];
     }
-
     // the caller needs to think about the order of return data
     const [left, __, top] = processInput(input);
 
@@ -470,7 +425,6 @@
       // then a miracle occurs
       return { left, right, top, bottom };
     }
-
     // the caller selects only the data they need
     const { left, top } = processInput(input);
     ```
