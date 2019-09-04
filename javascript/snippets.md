@@ -4,7 +4,7 @@
     const foo = 1;
  ```
 
-## ARRAYS
+### ARRAYS
 
 #### Clone
 ```javascript
