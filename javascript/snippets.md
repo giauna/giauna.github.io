@@ -2,7 +2,13 @@
 
  ```javascript
     const foo = 1;
-    let bar = foo;
-    bar = 9;
  ```
-    
+
+## ARRAYS
+
+#### Clone
+```javascript
+const originalArray = [1, 2, 3];
+const shallowArrayClone = [...originalArray];
+```
+
