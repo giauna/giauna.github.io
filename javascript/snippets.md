@@ -41,6 +41,14 @@ with property overriden
 ```javascript
 const originalObject = { a:1, b: 2, c: 3 };
 const shallowObjectClone = {...originalObject, c: 45 };
-```j
+```
 
+## Fetch - JSON
+```javascript
+await (await fetch('https://api.github.com/users/wesbos')).json();
+// BETTER THAN
+fetch('https://api.github.com/users/wesbos')
+.then(res => res.json()) //json() also returns a promise
+.then(data => {console.log(data)});
+```
 
