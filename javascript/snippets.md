@@ -11,6 +11,23 @@
 const originalArray = [1, 2, 3];
 const shallowArrayClone = [...originalArray];
 ```
+BE CAREFUL with arrays containing objects (= binds to objects!)
+```javascript
+const arr1 = [{name:"Omar"}, {name:"Vito"}];
+const arr2 = [...arr1] // clones binds to objects
+arr2[0].name = "Alexander"
+
+console.log(arr1[0].name) // Alexander
+console.log(arr1) // [ { name: 'Alexander' }, { name: 'Vito' } ]
+console.log(arr2) // [ { name: 'Alexander' }, { name: 'Vito' } ]
+
+//DEEP CLONE
+let a = [{ x:{z:1} , y: 2}];
+let b = JSON.parse(JSON.stringify(a));
+b[0].x.z=0
+console.log(JSON.stringify(a)); //[{"x":{"z":1},"y":2}]
+console.log(JSON.stringify(b)); // [{"x":{"z":0},"y":2}]
+```
 #### Get unique values
 ```javascript
 const arrayWithDuplicateValues = [1, 2, 3, 3, 1, 5];
@@ -157,15 +174,6 @@ const [first, ...restOfArr] = personArr;
 
 console.log(first); // { name: 'Param' }
 console.log(restOfArr); // [{ name: 'Ahmed' }, { name: 'Jesus' }]
-
-// BE CAREFUL, THIS IS NOT Destructuring!
-const arr1 = [{name:"Omar"}, {name:"Vito"}];
-const arr2 = [...arr1] // !!!!!
-arr2[0].name = "Alexander"
-
-console.log(arr1[0].name) // Alexander
-console.log(arr1) // [ { name: 'Alexander' }, { name: 'Vito' } ]
-console.log(arr2) // [ { name: 'Alexander' }, { name: 'Vito' } ]
 ```
 
 #### Not defined variable
