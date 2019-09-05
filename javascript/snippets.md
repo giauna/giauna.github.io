@@ -49,7 +49,7 @@ const shallowObjectClone = {...originalObject, c: 45 };
 // Fetch requirements: Latest Chrome/FF browser or Github fetch polyfill: https://github.com/github/fetch
 
 // async function
-async function fetchAsync () {
+async function fetchAsync () { // OR const fetchAsyncA = async () =>
 return (await fetch('https://api.github.com')).json();
 }
 // trigger async function
@@ -62,3 +62,9 @@ fetch('https://api.github.com/users/wesbos')
 .then(res => res.json()) //json() also returns a promise
 .then(data => {console.log(data)});
 ```
+
+## Arrow functions
+
+#### this
+![arrowFunc-this.jpg]({{site.baseurl}}/javascript/arrowFunc-this.jpg)
+
