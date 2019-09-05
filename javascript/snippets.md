@@ -128,3 +128,71 @@ foo();// "Sally"
 bar();// "Apple"
 ```
 Vanilla functions follow the dot operator "hack" while the arrow functions stay binded to the value of this that was there just before the function was defined. This binding stays even if the function is re-declared unlike the vanilla flavour.
+
+
+## Destructuring
+
+#### Simple object
+```javascript
+// for simple object
+const obj = {
+  name: 'Param',
+  city: 'Tallinn',
+  age: 20,
+  company: 'Learn with Param OU',
+};
+
+const { name, age, ...rest } = obj;
+
+console.log(name); // Param
+console.log(age); // 20
+console.log(rest); // { city: 'Tallinn', company: 'Learn with Param OU', }
+```
+
+#### Array
+```javascript
+const personArr = [
+  {
+    name: 'Param',
+  },
+  {
+    name: 'Ahmed',
+  },
+  {
+    name: 'Jesus',
+  },
+];
+
+const [first, ...restOfArr] = personArr;
+
+console.log(first); // { name: 'Param' }
+console.log(restOfArr); // [{ name: 'Ahmed' }, { name: 'Jesus' }]
+```
+
+#### Not defined variable
+```javascript
+const firstObj = {
+  name: 'Param',
+  city: 'Tallinn',
+  age: 20,
+  company: 'Learn with Param OU',
+};
+
+const { firstName, city } = firstObj;
+
+console.log(firstName); // undefined
+console.log(city); // Tallinn
+```
+
+#### Default value
+```javascript
+const secondObj = {
+  firstName: 'Param',
+  country: 'Estonia',
+};
+
+const { lastName = 'Harrison', country } = secondObj;
+
+console.log(lastName); // Harrison
+console.log(country); // Estonia
+```
