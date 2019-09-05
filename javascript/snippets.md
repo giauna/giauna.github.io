@@ -45,10 +45,20 @@ const shallowObjectClone = {...originalObject, c: 45 };
 
 ## Fetch - JSON
 ```javascript
-await (await fetch('https://api.github.com/users/wesbos')).json();
+// Async/Await requirements: Latest Chrome/FF browser or Babel: https://babeljs.io/docs/plugins/transform-async-to-generator/
+// Fetch requirements: Latest Chrome/FF browser or Github fetch polyfill: https://github.com/github/fetch
+
+// async function
+async function fetchAsync () {
+return (await fetch('https://api.github.com')).json();
+}
+// trigger async function
+fetchAsync()
+    .then(data => console.log(data))
+    .catch(reason => console.log(reason.message))
+
 // BETTER THAN
 fetch('https://api.github.com/users/wesbos')
 .then(res => res.json()) //json() also returns a promise
 .then(data => {console.log(data)});
 ```
-
