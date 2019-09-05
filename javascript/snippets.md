@@ -6,6 +6,8 @@
 
 ## Arrays
 
+[Hacks for Creating JavaScript Arrays](https://www.freecodecamp.org/news/https-medium-com-gladchinda-hacks-for-creating-javascript-arrays-a1b80cb372b/)
+
 #### Clone array
 ```javascript
 const originalArray = [1, 2, 3];
