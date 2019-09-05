@@ -167,6 +167,15 @@ const [first, ...restOfArr] = personArr;
 
 console.log(first); // { name: 'Param' }
 console.log(restOfArr); // [{ name: 'Ahmed' }, { name: 'Jesus' }]
+
+// BE CAREFUL, THIS IS NOT Destructuring!
+const arr1 = [{name:"Omar"}, {name:"Vito"}];
+const arr2 = [...arr1] // !!!!!
+arr2[0].name = "Alexander"
+
+console.log(arr1[0].name) // Alexander
+console.log(arr1) // [ { name: 'Alexander' }, { name: 'Vito' } ]
+console.log(arr2) // [ { name: 'Alexander' }, { name: 'Vito' } ]
 ```
 
 #### Not defined variable
