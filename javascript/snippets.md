@@ -63,8 +63,68 @@ fetch('https://api.github.com/users/wesbos')
 .then(data => {console.log(data)});
 ```
 
-## Arrow functions
+## THIS
 
 #### this
-![arrowFunc-this.jpg]({{site.baseurl}}/javascript/arrowFunc-this.jpg)
+```javascript
+let person = {
+    name: "Sally",
+    getName: function() {
+        return this.name;
+    }
+};
+let name = "Sergie";
+person.getName(); // "Sally"
+let foo = person.getName;
+foo(); // "Sergie"
+```
+same, but using arrow function
+```javascript
+let person = {
+  name: "Sally",
+  getName: () => this.name;
+}
+let name = "Sergie";
+person.getName(); // "Sergie"
+let foo = person.getName;
+foo(); // "Sergie"
+```
+```javascript
+let object = {
+    whatsThis: this,
+    getThisNew: () => this,
+    getThisOld: function() {
+        return this;
+    }
+};
+object.whatsThis(); // global
+object.getThisNew(); // global
+object.getThisOld(); // object
+```
+A good "hack" that works most of the times is to check if the function call is preceded by the dot operator. If it is, then this in the function definition will refer to the object before the dot operator. In the above case person.getName(), resulted in this being referenced to person. If there is no dot operator, this will usually refer to the global object.
+Another hack to check where does the _this_ object of the arrow function points to, is to observe what would be the value of _this_ just before declaring the arrow function.
 
+Classes: unlike objects where this refers does not refer to the object itself, in classes it does refer to the instance of the class:
+![arrowFunc-this.jpg]({{site.baseurl}}/javascript/arrowFunc-this.jpg)
+```javascript
+class Fruit {
+    constructor(name) {
+        this.name = name;
+    }
+    getNameOld() {
+        return this.name;
+    }
+    getNameNew = () => this.name;
+}
+// global variable
+let name = "Sally";
+let apple = new Fruit("Apple");
+apple.getNameNew();// "Apple"
+apple.getNameOld();// "Apple"
+// Now let's make two new functions:
+let foo = apple.getNameOld;
+let bar = apple.getNameNew;
+foo();// "Sally"
+bar();// "Apple"
+```
+Vanilla functions follow the dot operator "hack" while the arrow functions stay binded to the value of this that was there just before the function was defined. This binding stays even if the function is re-declared unlike the vanilla flavour.
