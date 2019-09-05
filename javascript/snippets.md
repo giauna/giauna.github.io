@@ -151,17 +151,7 @@ console.log(rest); // { city: 'Tallinn', company: 'Learn with Param OU', }
 
 #### Array
 ```javascript
-const personArr = [
-  {
-    name: 'Param',
-  },
-  {
-    name: 'Ahmed',
-  },
-  {
-    name: 'Jesus',
-  },
-];
+const personArr = [{ name: 'Param' },{ name: 'Ahmed' },{ name: 'Jesus' }];
 
 const [first, ...restOfArr] = personArr;
 
