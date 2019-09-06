@@ -14,11 +14,11 @@ const originalArray = [1, 2, 3];
 const shallowArrayClone = [...originalArray];
 ```
 BE CAREFUL with arrays containing objects (= binds to objects!)
+An important thing to note, when using spread syntax to copy a deep object, is that spread only goes one level deep
 ```javascript
 const arr1 = [{name:"Omar"}, {name:"Vito"}];
 const arr2 = [...arr1] // clones binds to objects
 arr2[0].name = "Alexander"
-
 console.log(arr1[0].name) // Alexander
 console.log(arr1) // [ { name: 'Alexander' }, { name: 'Vito' } ]
 console.log(arr2) // [ { name: 'Alexander' }, { name: 'Vito' } ]
