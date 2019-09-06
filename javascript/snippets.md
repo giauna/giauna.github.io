@@ -4,6 +4,10 @@
     const foo = 1;
 ```
 
+## Spread operator
+
+The Spread syntax allows you to expand something that is currently grouped inside a particular container and assign it to a different container. Compatible containers include: arrays, strings, objects and any iterable (such as Maps, Sets, TypedArrays, etc) and their elements can be expanded into function arguments, array elements and key-value pairs
+
 ## Arrays
 
 [Hacks for Creating JavaScript Arrays](https://www.freecodecamp.org/news/https-medium-com-gladchinda-hacks-for-creating-javascript-arrays-a1b80cb372b/)
