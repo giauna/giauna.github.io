@@ -209,3 +209,51 @@ const { lastName = 'Harrison', country } = secondObj;
 console.log(lastName); // Harrison
 console.log(country); // Estonia
 ```
+
+## Optional Chaining
+
+```javascript
+// API response object
+const person = {
+    details: {
+        name: {
+            firstName: "Michael",
+            lastName: "Lampe",
+        }
+    },
+    jobs: [
+        "Senior Full Stack Web Developer",
+        "Freelancer"
+    ]
+}
+// Getting the firstName
+const personFirstName = person.details.name.firstName;
+
+// Checking if firstName exists
+if( person &&
+    person.details &&
+    person.details.name ) {
+        const personFirstName = person.details.name.firstName || 'stranger';
+}
+```
+A better solution?
+
+**lodash**
+```javascript
+_.get(person, 'details.name.firstName', 'stranger');
+```
+
+**or Optional chaining** 
+Right now no browser supports this out of the box — Babel to the rescue. There is a [babel.js plugin](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining) already that is pretty easy to integrate if you have already Babel setup.
+```javascript
+const personFirstName = person?.details?.name?.firstName ?? 'stranger';
+// ?? called Nullish coalescing ope
+```
+Other samples
+```javascript
+const jobNumber = 1;
+const secondJob = person?.jobs?.[jobNumber] ?? 'none';
+// jobs?.[jobNumber] is the same as jobs[jobNumber] but it will not throw an error; instead, it will return 'none'.
+
+const currentJob = person?.jobs.getCurrentJob?.() ?? 'none';
+```
