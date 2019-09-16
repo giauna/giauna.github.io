@@ -247,7 +247,7 @@ _.get(person, 'details.name.firstName', 'stranger');
 Right now no browser supports this out of the box — Babel to the rescue. There is a [babel.js plugin](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining) already that is pretty easy to integrate if you have already Babel setup.
 ```javascript
 const personFirstName = person?.details?.name?.firstName ?? 'stranger';
-// ?? called Nullish coalescing ope
+// ?? called Nullish coalescing operator
 ```
 Other samples
 ```javascript
