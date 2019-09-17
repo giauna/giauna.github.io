@@ -4,6 +4,16 @@
     const foo = 1;
 ```
 
+## Immutability
+Immutable: after it has been created, it can never change.
+`Strings` and `Numbers` are immutable. In fact, no string methods change the string they operate on, they all return new strings.
+`Arrays` instead are mutable:
+```javascript
+var arr = [];
+var v2 = arr.push(2); // v2 = 1 , arr = [2]
+```
+The arr reference has been updated to contain the number, and v2 contains the new length of arr.
+
 ## Spread operator
 
 The Spread syntax allows you to expand something that is currently grouped inside a particular container and assign it to a different container. Compatible containers include: arrays, strings, objects and any iterable (such as Maps, Sets, TypedArrays, etc) and their elements can be expanded into function arguments, array elements and key-value pairs
