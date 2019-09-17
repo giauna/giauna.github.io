@@ -96,6 +96,8 @@ const nodeList = document.getElementsByClassName("pokemon");
 const array = [...nodeList];  
 console.log(nodeList); //Result: HTMLCollection [ div.pokemon, div.pokemon ]
 console.log(array); //Result: Array [ div.pokemon, div.pokemon ]
+// or 
+const array = Array.from(nodeList);
 // or (old way)
 const array = [].slice.apply(nodeList);
 // What this line of code is doing [].slice.apply(nodeList) is that changes the context from the empty array [], to the nodeList object, to make it seem that the object that called slice was nodeList and not the empty array itself
