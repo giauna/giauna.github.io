@@ -79,6 +79,14 @@ const arrayToFlatten = [ [1,2,3], [4,5,6], [7,8,9] ];
 const flattenedArray = [].concat(...arrayToFlatten); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
+### Concat
+```javascript
+arr1.push(...arr2);
+// faster than
+arr1 = arr1.concat(arr2);
+```
+
+
 ### Converting Array-like Objects to Arrays
 Array-like Objects are very similar to Arrays. They usually have numbered elements and a length property. However, they have one crucial difference: Array-like Objects **do not have any of the Array functions**.
 Among the Array-like Objects are the **HTML node lists returned by most DOM methods**, the arguments variable generated automatically in every JS function and a few others.
