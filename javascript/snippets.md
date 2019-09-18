@@ -79,7 +79,7 @@ const arrayToFlatten = [ [1,2,3], [4,5,6], [7,8,9] ];
 const flattenedArray = [].concat(...arrayToFlatten); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-### Concat
+#### Concat
 ```javascript
 arr1.push(...arr2);
 // faster than
@@ -306,4 +306,107 @@ const secondJob = person?.jobs?.[jobNumber] ?? 'none';
 // jobs?.[jobNumber] is the same as jobs[jobNumber] but it will not throw an error; instead, it will return 'none'.
 
 const currentJob = person?.jobs.getCurrentJob?.() ?? 'none';
+```
+
+
+## Classes
+
+Before ES6
+```javascript
+var Dinosaur = function(){
+};
+//Assign the roar function to our Dinosaur object
+Dinosaur.prototype ={
+    roar: function(){
+      console.log("Roar"); 
+    }
+}
+
+//create a new dinosaur
+var dino = new Dinosaur();
+dino.roar();
+```
+After ES6
+```javascript
+class Dinosaur{
+  roar(){
+    console.log("Roar!"); 
+  }
+}
+
+//create a new dinosaur
+var dino = new Dinosaur();
+dino.roar();
+```
+
+#### Constructor
+```javascript
+class Dinosaur{
+  constructor(color){
+    this._color = color;
+  }
+  roar(){
+    console.log("Roar!"); 
+  }
+  getColor(){
+    console.log(this._color); 
+  }
+}
+
+//create a new dinosaur
+var dino = new Dinosaur("purple");
+dino.roar();
+dino.getColor();
+```
+`this` is talking about the object we've created using our class
+`super` is referring to the parent class that our child class is inheriting from
+
+#### Encapsulation
+This paradigm essentially means the ability to protect certain fields or properties, a `this._propertyName` is supposed to be private and not modified directly.
+Instead, there are `get` and `set` functions that should be used to access or modify these properties. Something to note is that you don't call them like a normal function. For setters you are just setting a value using the ` = ` and getters you just call it, no need for ` () `.
+```javascript
+class Dinosaur{
+  constructor(color){
+    this._color = color;
+  }
+}
+//Brontosaurus inherits from Dinosaur class 
+//where we are using the class and extends keywords
+class Brontosaurus extends Dinosaur{
+  constructor(color,isHerbivore, legs, length){
+    //super must be implemented before the child class properties.
+    super(color)
+    //here we are assigning new properties to our child class
+    this._herbivore= isHerbivore;
+    this._legs = legs;
+    this._length= length;
+  }
+
+
+  get color(){
+    return this._color.toUpperCase();    
+  }
+  get isHerbivore(){
+    return this._herbivore; 
+  }
+
+  get legs (){
+    return this._legs;
+  }
+
+  set length (length){
+    this._length = length;
+  }
+
+  get length(){
+    return this._length; 
+  }
+}
+
+var bront = new Brontosaurus("Purple",true, 4, 25); 
+console.log(bront.color);//PURPLE
+console.log(bront.isHerbivore);//true
+console.log(bront.legs);
+bront.length = 29;
+console.log(bront.length);
 ```
