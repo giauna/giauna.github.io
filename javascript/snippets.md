@@ -361,7 +361,7 @@ dino.getColor();
 `this` is talking about the object we've created using our class
 `super` is referring to the parent class that our child class is inheriting from
 
-#### Encapsulation
+#### Encapsulation and SubClassing
 This paradigm essentially means the ability to protect certain fields or properties, a `this._propertyName` is supposed to be private and not modified directly.
 Instead, there are `get` and `set` functions that should be used to access or modify these properties. Something to note is that you don't call them like a normal function. For setters you are just setting a value using the ` = ` and getters you just call it, no need for ` () `.
 ```javascript
@@ -388,18 +388,20 @@ class Brontosaurus extends Dinosaur{
   get isHerbivore(){
     return this._herbivore; 
   }
-
   get legs (){
     return this._legs;
   }
-
   set length (length){
     this._length = length;
   }
-
   get length(){
     return this._length; 
   }
+  
+  static sayHello(){
+    console.log("Hello!")
+  }
+  
 }
 
 var bront = new Brontosaurus("Purple",true, 4, 25); 
@@ -408,4 +410,6 @@ console.log(bront.isHerbivore);//true
 console.log(bront.legs);
 bront.length = 29;
 console.log(bront.length);
+bront.sayHello(); //error: bront.sayHellois not a function
+Brontosaurus.sayHello(); // Hello!
 ```
