@@ -382,7 +382,6 @@ class Brontosaurus extends Dinosaur{
     this._length= length;
   }
 
-
   get color(){
     return this._color.toUpperCase();    
   }
