@@ -94,6 +94,16 @@ Here's an example, converting a NodeList to an Array:
 ```javascript
 const nodeList = document.getElementsByClassName("pokemon");
 const array = [...nodeList];  
+example:
+const sections = [...document.querySelectorAll("section")];
+sections.forEach((section, index) => {
+  const sectionChildren = [...section.querySelector("[data-content]").children];
+  sectionChildren.forEach((el, index) => {
+    el.style.setProperty("--delay", `${index * 250}ms`);
+  });
+  //...
+});
+
 console.log(nodeList); //Result: HTMLCollection [ div.pokemon, div.pokemon ]
 console.log(array); //Result: Array [ div.pokemon, div.pokemon ]
 // or 
